@@ -41,28 +41,40 @@ public class ScoreDisplay extends PApplet
 		}
 	}
 
+	//printing the arraylist
 	public void printScore()
 	{
+		String noteType;
+		
 		for (Note n:notes)
-		{		
-			println(n);						
-		}
-	}
-
-	public void charAt(int num)
-	{
-		for (int i = 0; i < num; i++)
 		{
-			strings = score.charAt(i);
+			if (n.getDuration() == 1)
+			{
+				noteType = "Quaver";
+			}	
+			else
+			{
+				noteType = "Crotchet";
+			}
+			println(n.getNote() + " " + n.getDuration()+ " " + noteType);						
 		}
-
 	}
+
+	// public void charAt(int num)
+	// {
+	// 	for (int i = 0; i < num; i++)
+	// 	{
+	// 		strings = score.charAt(i);
+	// 	}
+
+	// }
 
 	
 	
 
 	public void setup() 
 	{
+		background(255);
 		loadScore();
 		printScore();
 		
@@ -72,10 +84,32 @@ public class ScoreDisplay extends PApplet
 	{
 		background(255);
 		
+		
+		line(100, 200, 850, 200);
+		line(100, 220, 850, 220);
+		line(100, 240, 850, 240);
+		line(100, 260, 850, 260);
+		line(100, 280, 850, 280);
+
+
+	
+		
+		
 	}
 
+	// private float border = 40;
+	// private float rowHeight = 40;
+	// private int maxNotes = 10;
+	// float noteName = 150;
 	void drawNotes()
 	{
-
+		for (int i = 0; i < notes.size(); i++)
+		{
+			// noStroke();
+			// fill(map(i, 0, notes.size(), 0, 255), 255, 255);
+			// float x1 = map(notes.get(i).getNote(), 1, maxNotes, noteName, width - border);
+			// float x2 = map(notes.get(i).getDuration(), 1, maxNotes, noteName, width - border);
+			// ellipse(x1, x2 - x1, rowHeight - 5, 5.0f);
+		}
 	}
 }

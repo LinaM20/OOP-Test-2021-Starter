@@ -35,7 +35,7 @@ public class Note {
     //toString method
     @Override
     public String toString() {
-        return "Notes [note= " + note + "length of note = " + duration + "]";
+        return "Notes [note = " + note + " length of note = " + duration + "]";
 
     }
 
