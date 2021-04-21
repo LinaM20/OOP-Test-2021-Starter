@@ -1,8 +1,8 @@
 package ie.tudublin;
 
 import java.util.ArrayList;
-
-
+import java.util.Arrays;
+import java.util.List;
 import processing.core.PApplet;
 
 public class ScoreDisplay extends PApplet
@@ -14,6 +14,10 @@ public class ScoreDisplay extends PApplet
 	//ArrayList
 	ArrayList<Note> notes = new ArrayList<Note>();
 	
+	char strings;
+	
+
+	
 	public void settings()
 	{
 		size(1000, 500);
@@ -24,8 +28,43 @@ public class ScoreDisplay extends PApplet
 		println(i);
 	}
 
+	//loadScore method to populate ArrayList
+	public void loadScore()
+	{
+		for (int i = 0; i < score.length(); i++)
+		{
+			char n = score.charAt(i);
+			int duration = 1;
+		
+			Note note = new Note(n, duration);
+			notes.add(note);
+		}
+	}
+
+	public void printScore()
+	{
+		for (Note n:notes)
+		{		
+			println(n);						
+		}
+	}
+
+	public void charAt(int num)
+	{
+		for (int i = 0; i < num; i++)
+		{
+			strings = score.charAt(i);
+		}
+
+	}
+
+	
+	
+
 	public void setup() 
 	{
+		loadScore();
+		printScore();
 		
 	}
 
@@ -37,5 +76,6 @@ public class ScoreDisplay extends PApplet
 
 	void drawNotes()
 	{
+
 	}
 }

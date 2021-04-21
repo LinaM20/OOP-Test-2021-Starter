@@ -5,6 +5,22 @@ public class Note {
     private char note;
     private int duration;
 
+    public char getNote() {
+        return note;
+    }
+
+    public void setName(char note) {
+        this.note = note;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
     //constructor
     public Note(char note, int duration)
     {
@@ -12,7 +28,12 @@ public class Note {
         this.duration = duration;
     }
 
+
+    public Note(String score) {
+    }
+
     //toString method
+    @Override
     public String toString() {
         return "Notes [note= " + note + "length of note = " + duration + "]";
 
