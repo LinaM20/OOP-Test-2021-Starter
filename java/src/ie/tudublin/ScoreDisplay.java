@@ -25,20 +25,22 @@ public class ScoreDisplay extends PApplet
 		// How to convert a character to a number
 		char c = '7'; // c holds the character 7 (55)
 		int i = c - '0'; // i holds the number 7 (55 - 48) 
-		println(i);
+		//println(i);
 	}
 
 	//loadScore method to populate ArrayList
 	public void loadScore()
 	{
-		for (int i = 0; i < score.length(); i++)
-		{
-			char n = score.charAt(i);
-			int duration = 1;
+		String str[] = score.split("");
+
+		List<String> notes = new ArrayList<String>(Arrays.asList(str));
 		
-			Note note = new Note(n, duration);
-			notes.add(note);
+		for (String s : notes)
+		{
+				println(s);
 		}
+
+		
 	}
 
 	//printing the arraylist
@@ -60,17 +62,7 @@ public class ScoreDisplay extends PApplet
 		}
 	}
 
-	// public void charAt(int num)
-	// {
-	// 	for (int i = 0; i < num; i++)
-	// 	{
-	// 		strings = score.charAt(i);
-	// 	}
 
-	// }
-
-	
-	
 
 	public void setup() 
 	{
@@ -80,9 +72,18 @@ public class ScoreDisplay extends PApplet
 		
 	}
 
-	public void draw()
+	private int maxNotes = 8;
+	private float names = 150;
+	private float border = 0.9f;
+	void drawNotes()
 	{
-		background(255);
+		for (int i = 0; i < notes.size(); i++)
+		{
+			Note note = notes.get(i);
+			text(note.getNote(), border, 0.1f);
+		}
+		
+		
 		
 		
 		line(100, 200, 850, 200);
@@ -90,26 +91,30 @@ public class ScoreDisplay extends PApplet
 		line(100, 240, 850, 240);
 		line(100, 260, 850, 260);
 		line(100, 280, 850, 280);
+		
+			
 
+		fill(0);
+		ellipse(170, 250, width/40, height/20); //A
+		ellipse(200, 250, width/40, height/20);
+		ellipse(230, 250, width/40, height/20);
+		ellipse(260, 250, width/40, height/20);
+		ellipse(290, 250, width/40, height/20);
+		ellipse(320, 250, width/40, height/20);
+		ellipse(350, 250, width/40, height/20);
+		ellipse(380, 250, width/40, height/20);
 
 	
 		
-		
+
+	
+	}
+	public void draw()
+	{
+		background(255);
+		drawNotes();
 	}
 
-	// private float border = 40;
-	// private float rowHeight = 40;
-	// private int maxNotes = 10;
-	// float noteName = 150;
-	void drawNotes()
-	{
-		for (int i = 0; i < notes.size(); i++)
-		{
-			// noStroke();
-			// fill(map(i, 0, notes.size(), 0, 255), 255, 255);
-			// float x1 = map(notes.get(i).getNote(), 1, maxNotes, noteName, width - border);
-			// float x2 = map(notes.get(i).getDuration(), 1, maxNotes, noteName, width - border);
-			// ellipse(x1, x2 - x1, rowHeight - 5, 5.0f);
-		}
-	}
+
+	
 }
