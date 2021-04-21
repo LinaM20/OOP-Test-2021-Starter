@@ -31,6 +31,18 @@ public class ScoreDisplay extends PApplet
 	//loadScore method to populate ArrayList
 	public void loadScore()
 	{
+		for (int i = 0; i < score.length(); i++)
+		{
+			char aNote = score.charAt(i);
+			int duration = 1;
+
+			Note note = new Note(aNote, duration);
+			notes.add(note);
+
+		
+
+		
+		}
 		String str[] = score.split("");
 
 		List<String> notes = new ArrayList<String>(Arrays.asList(str));
@@ -39,7 +51,7 @@ public class ScoreDisplay extends PApplet
 		{
 				println(s);
 		}
-
+		
 		
 	}
 
@@ -60,42 +72,25 @@ public class ScoreDisplay extends PApplet
 			}
 			println(n.getNote() + " " + n.getDuration()+ " " + noteType);						
 		}
+
 	}
 
-
-
-	public void setup() 
-	{
-		background(255);
-		loadScore();
-		printScore();
-		
-	}
-
+	
 	private int maxNotes = 8;
 	private float names = 150;
 	private float border = 0.9f;
 	void drawNotes()
 	{
-		for (int i = 0; i < notes.size(); i++)
-		{
-			Note note = notes.get(i);
-			text(note.getNote(), border, 0.1f);
-		}
-		
-		
-		
 		
 		line(100, 200, 850, 200);
 		line(100, 220, 850, 220);
 		line(100, 240, 850, 240);
 		line(100, 260, 850, 260);
 		line(100, 280, 850, 280);
-		
-			
+	
 
 		fill(0);
-		ellipse(170, 250, width/40, height/20); //A
+		ellipse(170, 250, width/40, height/20); 
 		ellipse(200, 250, width/40, height/20);
 		ellipse(230, 250, width/40, height/20);
 		ellipse(260, 250, width/40, height/20);
@@ -103,12 +98,18 @@ public class ScoreDisplay extends PApplet
 		ellipse(320, 250, width/40, height/20);
 		ellipse(350, 250, width/40, height/20);
 		ellipse(380, 250, width/40, height/20);
-
-	
-		
-
 	
 	}
+	public void setup() 
+	{
+		//background(255);
+		
+		loadScore();
+		printScore();
+		//drawNotes();
+		
+	}
+
 	public void draw()
 	{
 		background(255);

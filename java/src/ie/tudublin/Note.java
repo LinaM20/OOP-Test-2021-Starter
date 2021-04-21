@@ -9,7 +9,7 @@ public class Note {
         return note;
     }
 
-    public void setName(char note) {
+    public void setNote(char note) {
         this.note = note;
     }
 
